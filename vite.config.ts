@@ -1,14 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { VitePWA } from 'vite-plugin-pwa';
-import Pages from 'vite-plugin-pages';
+import vike from 'vike/plugin';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    Pages({
-      dirs: [{ dir: 'src/pages', baseRoute: '' },]
-    }),
+    vike(),
     // TODO: プロダクトに合わせて設定を変更する
     VitePWA({
       registerType: 'autoUpdate',
