@@ -1,0 +1,2 @@
+export const FOURSQUARE_CLIENT_ID = import.meta.env.VITE_FOURSQUARE_CLIENT_ID;
+export const FOURSQUARE_CLIENT_SECRET = import.meta.env.VITE_FOURSQUARE_CLIENT_SECRET;
