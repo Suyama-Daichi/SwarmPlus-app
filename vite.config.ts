@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { VitePWA } from 'vite-plugin-pwa';
-
+import Pages from 'vite-plugin-pages';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(), // TODO: プロダクトに合わせて設定を変更する
+    react(),
+    Pages({ 'dirs': ['src/pages'] }),
+    // TODO: プロダクトに合わせて設定を変更する
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],

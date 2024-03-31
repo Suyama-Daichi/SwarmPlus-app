@@ -1,13 +1,14 @@
-import { FOURSQUARE_CLIENT_ID } from './constant';
+import { Suspense } from 'react';
+import { useAuthentication } from './hooks/useAuthentication';
+import { useRoutes } from 'react-router';
+import routes from '~react-pages';
 
 function App() {
-
-  console.log(FOURSQUARE_CLIENT_ID);
-
+  useAuthentication();
   return (
-    <>
-      <div>App</div>
-    </>
+    <Suspense fallback={<p>Loading...</p>}>
+      {useRoutes(routes)}
+    </Suspense>
   );
 }
 
