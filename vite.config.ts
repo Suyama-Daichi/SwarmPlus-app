@@ -6,7 +6,9 @@ import Pages from 'vite-plugin-pages';
 export default defineConfig({
   plugins: [
     react(),
-    Pages({ 'dirs': ['src/pages'] }),
+    Pages({
+      dirs: [{ dir: 'src/pages', baseRoute: '' },]
+    }),
     // TODO: プロダクトに合わせて設定を変更する
     VitePWA({
       registerType: 'autoUpdate',

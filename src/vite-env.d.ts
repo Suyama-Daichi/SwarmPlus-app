@@ -5,6 +5,7 @@ interface ImportMetaEnv {
     readonly VITE_FOURSQUARE_CLIENT_ID: string
     readonly VITE_FOURSQUARE_CLIENT_SECRET: string
     readonly VITE_FOURSQUARE_API_ENDPOINT: string
+    readonly FOURSQUARE_OATH_ENDPOINT: string
 }
 
 interface ImportMeta {
