@@ -11,3 +11,23 @@ interface ImportMetaEnv {
 interface ImportMeta {
     readonly env: ImportMetaEnv
 }
+
+declare global {
+    namespace Vike {
+      interface PageContext {
+        // Type of pageContext.user
+        data: {
+            title: string
+            description: string
+        },
+        config: {
+            title: string
+            description: string
+        }
+        // Refine type of pageContext.Page (it's `unknown` by default)
+        Page: () => JSX.Element
+      }
+    }
+}
+
+export {};

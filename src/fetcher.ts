@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { FOURSQUARE_API_ENDPOINT } from './constant';
+import { FOURSQUARE_API_ENDPOINT, FOURSQUARE_OATH_ENDPOINT } from './constant';
 export class ApiError extends Error {
   status?: string;
   url?: string;
@@ -27,7 +27,12 @@ axiosClient.interceptors.response.use(
     throw e;
   },
 );
-
+export const oathFetcher = async <T>(path: string): Promise<T> => {
+  const uri = `${FOURSQUARE_OATH_ENDPOINT}/${path}`;
+  return await axios.get(uri).then((res) => {
+    return res.data;
+  });
+};
 export const fetcher = async (path: string) => {
   const uri = `${FOURSQUARE_API_ENDPOINT}/${path}`;
   return await axiosClient.get(uri).then((res) => {

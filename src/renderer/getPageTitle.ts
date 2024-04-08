@@ -12,3 +12,4 @@ function getPageTitle(pageContext: PageContext): string {
     'Vike Demo';
   return title;
 }
+
