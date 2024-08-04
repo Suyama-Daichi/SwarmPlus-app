@@ -5,6 +5,8 @@ import { usePageContext } from '../../renderer/usePageContext';
 import { makeQueryString } from '../../utils';
 import { type Data } from './+data';
 import { navigate } from 'vike/client/router';
+import Cookies from 'js-cookie';
+
 export { Page };
 
 function Page() {
@@ -16,7 +18,7 @@ function Page() {
 
   useEffect(() => {
     if (!accessToken) return;
-    localStorage.setItem('accessToken', accessToken);
+    Cookies.set('accessToken', accessToken);
     navigate('/home');
   }, [accessToken, pageContext]);
 

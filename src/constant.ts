@@ -3,3 +3,4 @@ export const FOURSQUARE_OATH_ENDPOINT = import.meta.env.VITE_FOURSQUARE_OATH_END
 export const FOURSQUARE_CLIENT_ID = import.meta.env.VITE_FOURSQUARE_CLIENT_ID;
 export const FOURSQUARE_CLIENT_SECRET = import.meta.env.VITE_FOURSQUARE_CLIENT_SECRET;
 export const FOURSQUARE_REDIRECT_URI = import.meta.env.DEV ? 'http://localhost:3003' : 'https://foursquare.com';
+export const FOURSQUARE_API_VERSION = '20240109' as const;

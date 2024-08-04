@@ -16,6 +16,7 @@ import express from 'express';
 import compression from 'compression';
 import { renderPage } from 'vike/server';
 import { root } from './root.js';
+import { getObjectFromString } from '../src/utils.ts';
 const isProduction = process.env.NODE_ENV === 'production';
 
 startServer();
@@ -57,9 +58,11 @@ async function startServer() {
   // Vike middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
   app.get('*', async (req, res, next) => {
-    console.log('req.originalUrl', req.originalUrl);
+    const cookie = req.headers.cookie &&getObjectFromString(req.headers.cookie);
+    const accessToken = cookie && cookie.accessToken;
     const pageContextInit = {
-      urlOriginal: req.originalUrl
+      urlOriginal: req.originalUrl,
+      accessToken: accessToken
     };
     const pageContext = await renderPage(pageContextInit);
     if (pageContext.errorWhileRendering) {
